@@ -1,0 +1,14 @@
+<div class="container">
+  <h3>Update <%= @question.description %> </h3>
+  <form action="/questions/<%= @question.id() %>" method="post">
+    <input name="survey_id" type="hidden" value="<%= @question.survey_id %>">
+    <input name="_method" type="hidden" value="patch">
+    <label for="description">Redescribe your question description:</label>
+    <input name="description" type="text" required autofocus>
+    <button class = "btn waves-effect waves-light" type="submit">Update</button>
+  </form><br>
+  <form action="/questions/<%= @question.id() %>" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit" class="btn waves-effect waves-light">Delete</button>
+  </form>
+</div>

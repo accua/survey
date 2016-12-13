@@ -4,7 +4,7 @@
   <% if @survey.questions.any? %>
     <ul>
       <% @survey.questions.each do |question| %>
-        <li><a href="/question/<%= question.id %>"><%= question.description %></a></li>
+        <li><a href="/question/<%= question.id %>"><%= question.description %></a><br><a href="/questions/<%= question.id %>/edit">Update/Delete</a></li>
       <% end %>
     </ul>
     <% else %>
