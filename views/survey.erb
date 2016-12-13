@@ -1,0 +1,23 @@
+<div class="container">
+  <%= @survey.title %>
+
+  <% if @survey.questions.any? %>
+    <ul>
+      <% @survey.questions.each do |question| %>
+        <li><a href="/question/<%= question.id %>"><%= question.description %></a></li>
+      <% end %>
+    </ul>
+    <% else %>
+      <p>
+        There are no questions for this survey, yet!
+      </p>
+    <% end %>
+
+    <form action="/surveys/:id/questions" method="post">
+      <input name="id_survey" type="hidden" value="<%= @survey.id %>">
+      <input name="question" type="text" placeholder="Enter A Question" autofocus required>
+      <button class="btn" type="submit">Add Question</button>
+      <br><br>
+      <a href="/" class="btn">Home</a>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <h1><%= @question.description %></h1>
+  <% if @question.answer != nil %>
+  <ul>
+    <% @question.answer.each do |answer| %>
+    <li><%=answer%></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>
+    This question has not been answered yet!
+  </p>
+  <% end %>
+
+  <form action="/questions/:id/" method="post">
+    <input name="id_question" type="hidden" value="<%= @question.id %>">
+    <input name="answer" type="text" placeholder="Enter An Answer" autofocus required>
+    <button class="btn" type="submit">Add Answer</button>
+    <br><br>
+    <a href="/" class="btn">Home</a>
+  </form>
+</div>
